@@ -15,6 +15,8 @@ repositories {
 
 dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.esotericsoftware.yamlbeans:yamlbeans:1.15'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
 }
@@ -26,5 +28,8 @@ test {
 jar {
     manifest {
         attributes "Main-Class": "br.com.thiagopagonha.jurosbaixostest.JurosBaixosTestApplication"
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
     }
 }
