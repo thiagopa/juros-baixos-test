@@ -10,6 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class FizzBuzzSolverImplTest {
 
     FizzBuzzSolver fizzBuzzSolver = new FizzBuzzSolverImpl();
+
     @Test
     void given_divisible_by_3_translate_to_fizz() {
         List<String> response = fizzBuzzSolver.translateNumbers(
@@ -45,5 +46,12 @@ public class FizzBuzzSolverImplTest {
 
         assertThat(response).containsExactly("1");
     }
+    @Test
+    void given_translated_numbers_return_hashed_json_in_sha256() {
+        String hash = fizzBuzzSolver.hashNumbers(
+                List.of("fizz", "buzz", "fizzbuzz")
+        );
 
+        assertThat(hash).isEqualTo("c66a63862cf416c2acfe81ae697c066cff80b430af31fc9cae70957f355ded7d");
+    }
 }

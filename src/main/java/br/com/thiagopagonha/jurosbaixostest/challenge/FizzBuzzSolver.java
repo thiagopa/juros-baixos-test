@@ -13,4 +13,9 @@ public interface FizzBuzzSolver {
      * In the other case just return the number
      */
     List<String> translateNumbers(List<Integer> rawNumbers);
+
+    /**
+     * Hash the translated numbers into a sha256 string
+     */
+    String hashNumbers(List<String> translatedNumbers);
 }

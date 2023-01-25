@@ -19,9 +19,14 @@ public class ChallengeSolverImpl implements ChallengeSolver {
 
     @Override
     public void solveChallenge() throws IOException {
+        // -- Retrieve the numbers from the api
         Response<List<Integer>> rawNumbersResponse = jurosBaixosApi.retrieveNumbers().execute();
         List<Integer> rawNumbers = rawNumbersResponse.body();
+        // -- Translate the numbers according to the rules
         List<String> translatedNumbers = fizzBuzzSolver.translateNumbers(rawNumbers);
+        // -- Hash the translated numbers
+        String answerHash = fizzBuzzSolver.hashNumbers(translatedNumbers);
+        System.out.println(answerHash);
         System.out.println(translatedNumbers);
     }
 }
