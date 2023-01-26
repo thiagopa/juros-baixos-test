@@ -4,12 +4,16 @@ import br.com.thiagopagonha.jurosbaixostest.api.JurosBaixosApi;
 import br.com.thiagopagonha.jurosbaixostest.config.ApiConfig;
 import com.esotericsoftware.yamlbeans.YamlReader;
 import okhttp3.OkHttpClient;
+import okhttp3.Protocol;
 import okhttp3.Request;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.time.Duration;
+import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
 
@@ -48,9 +52,14 @@ public class JurosBaixosApiFactory {
      */
     private static OkHttpClient newHttpClient(String apiKey) {
         OkHttpClient.Builder builder = new OkHttpClient().newBuilder();
-        builder.callTimeout(5, TimeUnit.SECONDS);
-        builder.connectTimeout(5, TimeUnit.SECONDS);
-
+        // -- No timeout
+        builder.callTimeout(Duration.ZERO);
+        builder.connectTimeout(Duration.ZERO);
+        // -- Log http requests for easy debug
+//        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
+//        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
+//        builder.addInterceptor(logging);
+        // -- Add api key to each request
         builder.addInterceptor(chain -> {
             Request request = chain.request().newBuilder().addHeader("X-API-KEY", apiKey).build();
             return chain.proceed(request);

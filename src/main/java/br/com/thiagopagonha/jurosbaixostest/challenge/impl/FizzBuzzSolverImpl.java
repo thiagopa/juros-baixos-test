@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class FizzBuzzSolverImpl implements FizzBuzzSolver {
-    private Gson gson = new Gson();
+    private final Gson gson = new Gson();
 
     @Override
     public List<String> translateNumbers(List<Integer> rawNumbers) {
