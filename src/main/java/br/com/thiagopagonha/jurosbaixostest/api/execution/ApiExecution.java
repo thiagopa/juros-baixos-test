@@ -32,14 +32,14 @@ public final class ApiExecution {
             response = apiCall.execute();
         } catch (Exception e) {
             throw new ApiException(
-                    String.format("API EXCEPTION=%s", e.getMessage())
+                    String.format("EXCEPTION [%s] %s", e.getClass().getName(), e.getMessage())
             );
         }
 
         if (!response.isSuccessful()) {
             String apiErrorResponse = extractRawResponseError(response);
             throw new ApiException(
-                    String.format("API ERROR=%s", apiErrorResponse)
+                    String.format("API ERROR [%d] %s", response.code(), apiErrorResponse)
             );
         }
 

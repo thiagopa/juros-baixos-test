@@ -116,6 +116,7 @@ public class ChallengeSolverImpl implements ChallengeSolver {
             int responseCode = treasureResponse.code();
             String rawResponse = extractRawResponse(treasureResponse);
 
+            // -- Finally the api returned 200 but is it really?
             LOG.info(String.format("[%d] %s", responseCode, rawResponse));
             return checkIfTreasureResponseIsActuallyATreasure(responseCode, rawResponse);
         } catch (Exception e) {
