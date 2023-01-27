@@ -16,7 +16,11 @@ import java.time.Duration;
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
-
+/**
+ * Factory to create a new Rest Client for the Api calls
+ * It uses a interceptor to include the apikey in the header of each request
+ * @author Thiago Pagonha
+ */
 public class JurosBaixosApiFactory {
     /**
      * Static server api URL

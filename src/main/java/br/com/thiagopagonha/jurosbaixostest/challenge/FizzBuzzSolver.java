@@ -2,6 +2,10 @@ package br.com.thiagopagonha.jurosbaixostest.challenge;
 
 import java.util.List;
 
+/**
+ * FizzBuzzSolver helper
+ * @author Thiago Pagonha
+ */
 public interface FizzBuzzSolver {
     /**
      * Translate the numbers according to Jasper's Rule

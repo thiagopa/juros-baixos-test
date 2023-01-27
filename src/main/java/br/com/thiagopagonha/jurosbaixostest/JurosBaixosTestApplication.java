@@ -7,6 +7,10 @@ import br.com.thiagopagonha.jurosbaixostest.challenge.impl.ChallengeSolverImpl;
 import br.com.thiagopagonha.jurosbaixostest.challenge.impl.FizzBuzzSolverImpl;
 import br.com.thiagopagonha.jurosbaixostest.factory.JurosBaixosApiFactory;
 
+/**
+ * The main Application to the evaluation test
+ * @author Thiago Pagonha
+ */
 public class JurosBaixosTestApplication {
     public static void main(String[] args) throws Exception {
         // -- Make sure we have the api key

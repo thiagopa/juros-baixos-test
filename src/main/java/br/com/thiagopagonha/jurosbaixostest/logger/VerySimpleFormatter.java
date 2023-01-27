@@ -4,6 +4,10 @@ import java.util.Date;
 import java.util.logging.Formatter;
 import java.util.logging.LogRecord;
 
+/**
+ * Very Simple Log formatter pattern
+ * @author Thiago Pagonha
+ */
 public class VerySimpleFormatter extends Formatter {
     private static final String PATTERN = "HH:mm:ss.SSS";
 
