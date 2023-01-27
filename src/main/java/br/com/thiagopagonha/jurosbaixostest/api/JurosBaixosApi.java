@@ -51,4 +51,11 @@ public interface JurosBaixosApi {
      */
     @DELETE("fizzbuzz/{sha256Hash}")
     Call<ResponseBody> deleteAnswer(@Path("sha256Hash") String sha256Hash);
+
+    /**
+     * Resets the api to its initial state.
+     * @return Retrofit Call to be executed
+     */
+    @GET("/fizzbuzz/reset")
+    Call<ResponseBody> reset();
 }

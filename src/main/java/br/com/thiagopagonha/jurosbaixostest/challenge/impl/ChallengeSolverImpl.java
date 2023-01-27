@@ -71,6 +71,8 @@ public class ChallengeSolverImpl implements ChallengeSolver {
 
     @Override
     public void solveChallenge() throws IOException, ApiException {
+        // -- Start the challenge with a fresh state
+        // safeExecute(jurosBaixosApi.reset()); -- It always timeout
         // -- From Jasper's email:
         // -- you need to call the apis multiple times to get the treasure.
         boolean isChallengeSolved = false;
